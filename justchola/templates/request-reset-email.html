@@ -1,0 +1,54 @@
+{% extends 'store/nav.html' %}
+{% block title %}
+JustChola Reset Password
+{% endblock title %}
+
+{% block body %}
+
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8">
+    
+    
+<h1>Reset Password</h1>
+
+
+<section class="container forms">
+    <div class="form login">
+        <div class="form-content">
+            <header>Request A Link</header>
+            <form action="/accounts/request-reset-email" method="POST">
+                {% csrf_token %}
+                <div class="field input-field">
+                    <input type="email"name="email" placeholder="email">
+                </div>
+
+                <div class="field button-field">
+                    <button class="bg-success text-white">Submit Request</button>
+                </div>
+            </form>
+
+            <div>
+                <!-- to show errow messages-->
+                {%for message in messages%}
+                <h3>{{ message }}</h3>
+                 {% endfor %}
+            </div>
+
+            <div class="form-link">
+                <br>
+                <br>
+                <span><a href="/accounts/login" class="link signup-link">Go back?</a></span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="col-md-8"></div>
+    
+</div>
+{% endblock body %}
+
+

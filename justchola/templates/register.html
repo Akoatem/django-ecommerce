@@ -1,0 +1,89 @@
+{% extends 'store/nav.html' %}
+
+{% block title %}
+JustChola Register
+{% endblock title %}
+
+
+{% block body %}
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8">
+    
+        <h1>Register</h1>
+    
+        <section class="container forms">
+            <div class="form login">
+                <div class="form-content">
+                    <header></header>
+                    <form action="/accounts/register" method="POST">
+                        {% csrf_token %}
+                        <div class="field input-field">
+                            <input type="text" name="first_name" placeholder="first_name" required>
+                        </div>
+
+                        <div class="field input-field">
+                            <input type="text" name="last_name" placeholder="last_name" required>
+                        </div>
+        
+                        <div class="field input-field">
+                            <input type="text" name="username"placeholder="username" required>
+                        </div>
+        
+                        <div class="field input-field">
+                            <input type="text" name="email" placeholder="email" required>
+                        </div>
+        
+                        <div class="field input-field">
+                            <input type="password" name="password1"placeholder="Create password" required>
+                            <i class='bx bx-hide eye-icon'></i>
+                        </div>
+        
+                        <div class="field input-field">
+                            <input type="password" name="password2"placeholder="Confirm password" required>
+                            <i class='bx bx-hide eye-icon'></i>
+                        </div>
+        
+                        <div class="field button-field">
+                            <button type="Submit" value="Register Now" class="bg-success text-white">Register Now</button>
+                        </div> 
+                    </form>
+                    <div>
+                        <!-- to show errow messages-->
+                        {%for message in messages%}
+                        <h3>{{ message }}</h3>
+                         {% endfor %}
+                    </div>
+                
+                    <div class="form-link">
+                        <span>Already have an account? <a href="/accounts/login" class="link login-link">Login</a></span>
+                    </div>
+                </div>
+                
+                <div class="line"></div>
+        
+                <div class="media-options">
+                    <a href="#" class="field facebook">
+                        <i class='bx bxl-facebook facebook-icon'></i>
+                        <span class="bg-primary text-white">Login with Facebook</span>
+                    </a>
+                </div>
+        
+                <div class="media-options">
+                    <a href="#" class="field google">
+                        <img src="#" alt="" class="google-img">
+                        <span class="bg-danger text-white">Login with Google</span>
+                    </a>
+                </div>
+        
+            </div>
+        
+        </section>
+    
+    
+    <div class="col-md-8"></div>
+    
+    </div>
+
+{% endblock body %}
